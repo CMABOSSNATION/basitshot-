@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mosai Schools Entebbe | Excellence in Education</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9973A;
+    --gold-light: #E8C36A;
+    --gold-pale: #F5E9C8;
+    --dark: #0D0C0A;
+    --dark-2: #1A1815;
+    --dark-3: #2A2820;
+    --cream: #FAF7F0;
+    --cream-2: #F0EBE0;
+    --text: #2C2A25;
+    --text-light: #7A7060;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(13,12,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .nav-logo-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -1px;
+    box-shadow: 0 0 20px rgba(201,151,58,0.4);
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  .nav-brand span { color: var(--gold); font-size: 11px; font-weight: 300; display: block; letter-spacing: 3px; text-transform: uppercase; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark) !important;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.2s !important;
+    font-size: 13px !important;
+  }
+
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,151,58,0.4); color: var(--dark) !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.globalgiving.org/pfil/45591/pict_large.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    opacity: 0.35;
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.12); }
+  }
+
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(13,12,10,0.85) 0%, rgba(13,12,10,0.5) 50%, rgba(201,151,58,0.15) 100%);
+  }
+
+  .hero-gold-line {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 60px;
+    max-width: 780px;
+    animation: heroIn 1.2s ease-out;
+  }
+
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,151,58,0.15);
+    border: 1px solid rgba(201,151,58,0.4);
+    border-radius: 40px;
+    padding: 8px 20px;
+    margin-bottom: 32px;
+    color: var(--gold-light);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity:1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(201,151,58,0.35);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,151,58,0.5); }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.3s;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    position: absolute; bottom: 50px; right: 60px; z-index: 2;
+    display: flex; gap: 40px;
+    animation: heroIn 1.4s ease-out;
+  }
+
+  .stat {
+    text-align: center;
+    border-left: 1px solid rgba(201,151,58,0.3);
+    padding-left: 24px;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px; font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ===== ANNOUNCEMENT BAR ===== */
+  .announce {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    background-size: 200%;
+    animation: shimmer 3s linear infinite;
+    padding: 14px 40px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+  }
+
+  /* ===== ABOUT ===== */
+  .about {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 600px;
+    overflow: hidden;
+  }
+
+  .about-image {
+    position: relative; overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .about-image:hover img { transform: scale(1.04); }
+
+  .about-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,151,58,0.2), transparent);
+  }
+
+  .about-badge {
+    position: absolute; bottom: 30px; left: 30px;
+    background: var(--dark-2);
+    border: 1px solid rgba(201,151,58,0.4);
+    border-radius: 16px;
+    padding: 20px 24px;
+    backdrop-filter: blur(8px);
+  }
+
+  .about-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .about-badge-text {
+    font-size: 11px; color: rgba(255,255,255,0.6);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .about-content {
+    background: var(--dark-2);
+    padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 12px;
+    color: var(--gold);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 32px; height: 1px; background: var(--gold);
+  }
+
+  .about-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .about-content h2 em {
+    font-style: italic; color: var(--gold-light);
+  }
+
+  .about-content p {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px; line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .values-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .value-item {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+  }
+
+  .value-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+
+  /* ===== PROGRAMS ===== */
+  .programs {
+    padding: 100px 60px;
+    background: var(--cream);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-header h2 em { font-style: italic; color: var(--gold); }
+
+  .section-header p {
+    color: var(--text-light);
+    font-size: 16px; font-weight: 300;
+    max-width: 540px; margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .programs-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .program-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--cream-2);
+    transition: all 0.35s ease;
+    position: relative;
+  }
+
+  .program-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .program-card:hover::before { transform: scaleX(1); }
+  .program-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.1); }
+
+  .program-img {
+    width: 100%; height: 200px;
+    object-fit: cover;
+  }
+
+  .program-body {
+    padding: 28px;
+  }
+
+  .program-icon {
+    width: 48px; height: 48px;
+    background: var(--gold-pale);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .program-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .program-body p {
+    color: var(--text-light);
+    font-size: 13.5px; line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .program-age {
+    display: inline-block;
+    background: var(--gold-pale);
+    color: var(--gold);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 40px;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery {
+    padding: 100px 60px;
+    background: var(--dark);
+  }
+
+  .gallery .section-header h2 { color: var(--white); }
+  .gallery .section-label { color: var(--gold-light); }
+  .gallery .section-header p { color: rgba(255,255,255,0.5); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 12px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-item-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,12,10,0.6), transparent);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 16px;
+  }
+
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+  .gallery-item-label {
+    color: var(--white); font-size: 12px;
+    letter-spacing: 1px; text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials {
+    padding: 100px 60px;
+    background: var(--cream-2);
+  }
+
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px;
+    border: 1px solid rgba(201,151,58,0.15);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: rgba(201,151,58,0.4);
+  }
+
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px; line-height: 1;
+    color: var(--gold-pale);
+    margin-bottom: -20px;
+    font-weight: 300;
+  }
+
+  .testimonial-text {
+    font-size: 15px; line-height: 1.75;
+    color: var(--text);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  .testimonial-author {
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .author-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-weight: 600; font-size: 14px; color: var(--dark);
+  }
+
+  .author-role {
+    font-size: 12px; color: var(--text-light);
+    font-weight: 300;
+  }
+
+  .stars {
+    color: var(--gold); font-size: 14px; margin-bottom: 16px;
+  }
+
+  /* ===== SOCIAL MEDIA ===== */
+  .social-section {
+    padding: 100px 60px;
+    background: var(--dark-2);
+  }
+
+  .social-section .section-header h2 { color: var(--white); }
+  .social-section .section-header p { color: rgba(255,255,255,0.5); }
+
+  .social-feed {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px; margin: 0 auto 40px;
+  }
+
+  .social-card {
+    background: var(--dark-3);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(201,151,58,0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .social-card:hover {
+    border-color: rgba(201,151,58,0.5);
+    transform: translateY(-4px);
+  }
+
+  .social-card-img {
+    width: 100%; height: 180px;
+    object-fit: cover;
+  }
+
+  .social-card-body {
+    padding: 16px;
+  }
+
+  .social-handle {
+    font-size: 11px; color: var(--gold);
+    letter-spacing: 1px; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .social-card-text {
+    font-size: 13px; color: rgba(255,255,255,0.65);
+    line-height: 1.6; font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .social-meta {
+    display: flex; gap: 16px;
+    font-size: 11px; color: rgba(255,255,255,0.35);
+  }
+
+  .social-links {
+    display: flex; justify-content: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: all 0.3s;
+    border: 1.5px solid;
+  }
+
+  .social-btn.tiktok {
+    border-color: rgba(255,255,255,0.2); color: var(--white);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .social-btn.tiktok:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  .social-btn.facebook {
+    border-color: rgba(24,119,242,0.5); color: #4A90F5;
+    background: rgba(24,119,242,0.08);
+  }
+
+  .social-btn.facebook:hover { border-color: #4A90F5; background: rgba(24,119,242,0.15); }
+
+  .social-btn.whatsapp {
+    border-color: rgba(37,211,102,0.5); color: #25D366;
+    background: rgba(37,211,102,0.08);
+  }
+
+  .social-btn.whatsapp:hover { border-color: #25D366; background: rgba(37,211,102,0.15); }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    padding: 100px 60px;
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .contact-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300; color: var(--dark);
+    line-height: 1.15; margin-bottom: 16px;
+  }
+
+  .contact-info h2 em { font-style: italic; color: var(--gold); }
+
+  .contact-info p {
+    color: var(--text-light); font-size: 15px;
+    line-height: 1.7; font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .contact-details {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+
+  .contact-icon {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(201,151,58,0.3);
+  }
+
+  .contact-item-text strong {
+    display: block; font-size: 13px;
+    font-weight: 600; color: var(--dark);
+    letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+
+  .contact-item-text span {
+    color: var(--text-light); font-size: 14px;
+    font-weight: 300; line-height: 1.5;
+  }
+
+  .contact-item-text a {
+    color: var(--gold); text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item-text a:hover { color: var(--gold-light); }
+
+  .contact-form {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 48px;
+    border: 1px solid var(--cream-2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  .contact-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 600;
+    color: var(--dark); margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block; font-size: 12px;
+    font-weight: 600; color: var(--text-light);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: var(--cream);
+    border: 1.5px solid var(--cream-2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px; color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+  }
+
+  .form-textarea { height: 100px; resize: vertical; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none; border-radius: 50px;
+    padding: 16px;
+    color: var(--dark);
+    font-size: 15px; font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(201,151,58,0.35);
+    letter-spacing: 0.3px;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(201,151,58,0.5);
+  }
+
+  /* ===== MAP SECTION ===== */
+  .map-section {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-section iframe {
+    width: 100%; height: 100%; border: none;
+    filter: sepia(20%) saturate(120%);
+  }
+
+  .map-badge {
+    position: absolute; top: 20px; left: 20px;
+    background: var(--dark-2);
+    border: 1px solid rgba(201,151,58,0.4);
+    border-radius: 12px; padding: 14px 20px;
+    backdrop-filter: blur(8px);
+  }
+
+  .map-badge strong {
+    display: block; color: var(--white); font-size: 14px;
+    font-weight: 600; margin-bottom: 4px;
+  }
+
+  .map-badge span { color: var(--gold); font-size: 12px; font-weight: 300; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark);
+    padding: 64px 60px 32px;
+    border-top: 1px solid rgba(201,151,58,0.2);
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand p {
+    color: rgba(255,255,255,0.45); font-size: 13px;
+    font-weight: 300; line-height: 1.7; margin-top: 16px;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    color: var(--white); font-size: 13px;
+    font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col a {
+    color: rgba(255,255,255,0.45); text-decoration: none;
+    font-size: 13px; font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-bottom p {
+    color: rgba(255,255,255,0.3); font-size: 12px;
+  }
+
+  .footer-social {
+    display: flex; gap: 12px;
+  }
+
+  .footer-social a {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none; font-size: 14px;
+    transition: all 0.2s;
+  }
+
+  .footer-social a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,151,58,0.1);
+  }
+
+  /* ===== WHY US ===== */
+  .why-us {
+    padding: 100px 60px;
+    background: var(--dark-2);
+  }
+
+  .why-us .section-header h2 { color: var(--white); }
+  .why-us .section-label { color: var(--gold-light); }
+  .why-us .section-header p { color: rgba(255,255,255,0.5); }
+
+  .why-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .why-card {
+    padding: 36px 28px;
+    background: var(--dark-3);
+    border-radius: 20px;
+    border: 1px solid rgba(201,151,58,0.1);
+    transition: all 0.35s;
+    position: relative; overflow: hidden;
+  }
+
+  .why-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .why-card:hover::after { transform: scaleX(1); }
+  .why-card:hover { transform: translateY(-6px); border-color: rgba(201,151,58,0.3); }
+
+  .why-card-icon {
+    font-size: 36px; margin-bottom: 20px;
+    display: block;
+  }
+
+  .why-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--white); margin-bottom: 12px;
+  }
+
+  .why-card p {
+    color: rgba(255,255,255,0.5); font-size: 13.5px;
+    line-height: 1.7; font-weight: 300;
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 30px; }
+    .nav-links { gap: 20px; }
+    .hero-content, .programs, .gallery, .testimonials, .social-section, .why-us, footer { padding-left: 30px; padding-right: 30px; }
+    .about { grid-template-columns: 1fr; }
+    .about-image { height: 360px; }
+    .programs-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+    .contact { grid-template-columns: 1fr; gap: 40px; padding: 60px 30px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .social-feed { grid-template-columns: 1fr 1fr; }
+    .hero-stats { bottom: 30px; right: 30px; gap: 24px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 20px; }
+    .hero h1 { font-size: 42px; }
+    .programs-grid, .testimonials-grid, .why-grid, .social-feed { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:first-child { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-content { padding: 48px 24px; }
+    .values-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">M</div>
+    <div class="nav-brand">
+      Mosai Schools
+      <span>Entebbe, Uganda</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Enroll Now →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-gold-line"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Garunga Road, Entebbe · Est. Uganda</div>
+    <h1>Where Every Child<br>Discovers <em>Greatness</em></h1>
+    <p>Mosai Schools Entebbe is a nurturing centre of academic excellence, character development, and holistic growth — raising confident leaders for tomorrow's Uganda.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-gold">Enroll Your Child ✦</a>
+      <a href="#programs" class="btn-outline">Explore Programs →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Happy Learners</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Pass Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  🎓 &nbsp; Admissions Open for 2025 / 2026 Academic Year &nbsp;·&nbsp; Nursery, Primary & Beyond &nbsp;·&nbsp; Visit Us on Garunga Road, Entebbe &nbsp; 🌟
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-image">
+    <img src="https://images.globalgiving.org/pfil/45591/pict_large.jpg" alt="Students at Mosai Schools Entebbe" loading="lazy">
+    <div class="about-image-overlay"></div>
+    <div class="about-badge">
+      <div class="about-badge-num">A+</div>
+      <div class="about-badge-text">Academic Standard</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-label">About Mosai Schools</div>
+    <h2>A Legacy of<br><em>Brilliant Minds</em><br>in Entebbe</h2>
+    <p>Situated on Garunga Road in the heart of Entebbe, Mosai Schools has been a beacon of quality education for families across the Lake Victoria shoreline and beyond. We believe every child deserves a world-class foundation.</p>
+    <p>Our dedicated teachers, modern classrooms, and nurturing environment make Mosai the school of choice for progressive Ugandan families who demand excellence without compromise.</p>
+    <div class="values-list">
+      <div class="value-item"><div class="value-dot"></div>Academic Excellence</div>
+      <div class="value-item"><div class="value-dot"></div>Character & Values</div>
+      <div class="value-item"><div class="value-dot"></div>Creative Learning</div>
+      <div class="value-item"><div class="value-dot"></div>Sports & Arts</div>
+      <div class="value-item"><div class="value-dot"></div>Safe Environment</div>
+      <div class="value-item"><div class="value-dot"></div>Parent Partnership</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs reveal" id="programs">
+  <div class="section-header">
+    <div class="section-label" style="justify-content:center; margin-bottom:12px;">Our Programs</div>
+    <h2>Education for Every <em>Stage</em> of Life</h2>
+    <p>From curious toddlers to bright primary graduates — we guide every child's learning journey with love, skill, and dedication.</p>
+  </div>
+
+  <div class="programs-grid">
+    <div class="program-card">
+      <img class="program-img" src="https://images.globalgiving.org/pfil/45591/pict_large.jpg" alt="Daycare Mosai Schools" loading="lazy">
+      <div class="program-body">
+        <div class="program-icon">🍼</div>
+        <h3>Baby & Daycare</h3>
+        <p>A warm, safe and stimulating environment for our youngest learners. Qualified caregivers provide attentive, loving care that gives working parents complete peace of mind.</p>
+        <span class="program-age">Ages 6 months – 2 years</span>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img class="program-img" src="https://i0.wp.com/holtinternational.org/wp-content/uploads/2019/12/ChildrenEducation_11192019.jpg?resize=1280%2C720&ssl=1" alt="Nursery Class Mosai" loading="lazy">
+      <div class="program-body">
+        <div class="program-icon">🌱</div>
+        <h3>Nursery School</h3>
+        <p>Play-based learning that builds language, numeracy, social skills and curiosity. Our nursery curriculum lays the strongest possible foundation for lifelong learning.</p>
+        <span class="program-age">Ages 3 – 5 years</span>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img class="program-img" src="https://content.unicef.org/wp-content/uploads/2023/09/UGA-2016-0095_Lubiri_NB_LR.jpg" alt="Primary School Mosai Entebbe" loading="lazy">
+      <div class="program-body">
+        <div class="program-icon">📚</div>
+        <h3>Primary School</h3>
+        <p>Comprehensive Uganda National Curriculum (UNEB) education delivered by passionate, qualified teachers. We develop academic champions and well-rounded individuals.</p>
+        <span class="program-age">Primary 1 – 7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us reveal" id="why">
+  <div class="section-header">
+    <div class="section-label" style="justify-content:center; color:var(--gold); margin-bottom:12px;">Why Choose Mosai</div>
+    <h2 style="color:var(--white);">The <em style="color:var(--gold-light);">Mosai Difference</em></h2>
+    <p>We don't just teach — we transform. Here's what sets Mosai Schools apart from every other school in Entebbe.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-card-icon">🏆</span>
+      <h3>Award-Winning Results</h3>
+      <p>Consistently high PLE performance with top-scoring students gaining entry to the best secondary schools in Uganda.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">👩‍🏫</span>
+      <h3>Expert Teachers</h3>
+      <p>All our teachers hold professional qualifications and receive continuous in-service training to stay at the cutting edge of education.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">🌍</span>
+      <h3>Holistic Development</h3>
+      <p>Beyond academics — music, art, sports, debates, drama and community service shape every Mosai student into a complete human being.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-card-icon">🔒</span>
+      <h3>Safe & Secure Campus</h3>
+      <p>Our Garunga Road campus is fully fenced with 24-hour security, CCTV monitoring, and dedicated child safeguarding policies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery reveal" id="gallery">
+  <div class="section-header">
+    <div class="section-label" style="justify-content:center; color:var(--gold); margin-bottom:12px;">School Life</div>
+    <h2>Life at <em style="color:var(--gold-light);">Mosai Schools</em></h2>
+    <p>A glimpse into the vibrant, joyful world our students experience every single day.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://images.globalgiving.org/pfil/45591/pict_large.jpg" alt="Learning at Mosai Schools Entebbe" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">📖 Classroom Learning</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i0.wp.com/holtinternational.org/wp-content/uploads/2019/12/ChildrenEducation_11192019.jpg?resize=1280%2C720&ssl=1" alt="Early childhood Mosai" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">🌱 Early Childhood</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://content.unicef.org/wp-content/uploads/2023/09/UGA-2016-0095_Lubiri_NB_LR.jpg" alt="Uganda children school" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">🎓 Primary Classes</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Ugandan_students.jpg/1200px-Ugandan_students.jpg" alt="Students Uganda" loading="lazy" onerror="this.src='https://images.globalgiving.org/pfil/45591/pict_large.jpg'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">⚽ Sports & Play</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i0.wp.com/holtinternational.org/wp-content/uploads/2019/12/ChildrenEducation_11192019.jpg" alt="School activities" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">🎨 Arts & Culture</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal" id="testimonials">
+  <div class="section-header">
+    <div class="section-label" style="justify-content:center; color:var(--gold); margin-bottom:12px;">Parent Stories</div>
+    <h2>What Our <em>Community</em> Says</h2>
+    <p>The real measure of a school is the joy it brings to children and families. Here are some voices from our Mosai family.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Mosai Schools has been an absolute blessing for our family. My daughter went from shy and hesitant to a confident, brilliant student who loves going to school every morning. The teachers genuinely care.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">NK</div>
+        <div>
+          <div class="author-name">Nalubega Kirabo</div>
+          <div class="author-role">Parent of P.4 student</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">The academic standards at Mosai are exceptional. My son scored division one in PLE and was admitted to King's College Budo — a dream come true. Mosai laid that perfect foundation.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">BM</div>
+        <div>
+          <div class="author-name">Byamugisha Moses</div>
+          <div class="author-role">Parent of P.7 graduate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">As a working mother, knowing my child is safe, stimulated and loved at Mosai gives me complete peace of mind. The daycare is world-class and the staff are like family to us.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AO</div>
+        <div>
+          <div class="author-name">Akello Olivia</div>
+          <div class="author-role">Parent of Nursery child</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA SECTION -->
+<section class="social-section reveal" id="social">
+  <div class="section-header">
+    <div class="section-label" style="justify-content:center; color:var(--gold); margin-bottom:12px;">Follow Our Journey</div>
+    <h2 style="color:var(--white);">Stay Connected <em style="color:var(--gold-light);">with Mosai</em></h2>
+    <p>See daily school life, events, achievements and announcements across our social platforms.</p>
+  </div>
+
+  <div class="social-feed">
+    <div class="social-card">
+      <img class="social-card-img" src="https://images.globalgiving.org/pfil/45591/pict_large.jpg" alt="Mosai TikTok post" loading="lazy">
+      <div class="social-card-body">
+        <div class="social-handle">📱 TikTok · @MosaiSchoolsEbb</div>
+        <p class="social-card-text">Watch our learners shine at the 2025 End of Term Concert — talent, confidence & joy! 🎶✨ #MosaiSchools #Entebbe</p>
+        <div class="social-meta"><span>❤️ 2.4K</span><span>💬 89</span><span>🔗 Share</span></div>
+      </div>
+    </div>
+    <div class="social-card">
+      <img class="social-card-img" src="https://i0.wp.com/holtinternational.org/wp-content/uploads/2019/12/ChildrenEducation_11192019.jpg?resize=1280%2C720&ssl=1" alt="Mosai Facebook post" loading="lazy">
+      <div class="social-card-body">
+        <div class="social-handle">👥 Facebook · Mosai Schools Entebbe</div>
+        <p class="social-card-text">Congratulations to all our P.7 candidates! We are proud of each and every one of you. Your hard work will always pay off 🏆</p>
+        <div class="social-meta"><span>❤️ 1.1K</span><span>💬 47</span><span>🔗 Share</span></div>
+      </div>
+    </div>
+    <div class="social-card">
+      <img class="social-card-img" src="https://content.unicef.org/wp-content/uploads/2023/09/UGA-2016-0095_Lubiri_NB_LR.jpg" alt="Mosai school event" loading="lazy">
+      <div class="social-card-body">
+        <div class="social-handle">📱 TikTok · @MosaiSchoolsEbb</div>
+        <p class="social-card-text">Sports Day 2025 — Mosai athletes giving it their all on the track! The spirit of Garunga Road is unbeatable 🏃‍♂️🔥</p>
+        <div class="social-meta"><span>❤️ 3.7K</span><span>💬 122</span><span>🔗 Share</span></div>
+      </div>
+    </div>
+    <div class="social-card">
+      <img class="social-card-img" src="https://images.globalgiving.org/pfil/45591/pict_large.jpg" alt="Nursery Mosai" loading="lazy">
+      <div class="social-card-body">
+        <div class="social-handle">👥 Facebook · Mosai Schools Entebbe</div>
+        <p class="social-card-text">Admissions still open! Baby class, Nursery and Primary 1. Visit us on Garunga Road Entebbe or WhatsApp us today 📞</p>
+        <div class="social-meta"><span>❤️ 876</span><span>💬 203</span><span>🔗 Share</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/groups/948631243306593/" target="_blank" class="social-btn facebook">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Follow on Facebook
+    </a>
+    <a href="https://www.tiktok.com/discover/mosai-schools-entebbe-on-garunga-road" target="_blank" class="social-btn tiktok">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      Watch on TikTok
+    </a>
+    <a href="https://wa.me/256700000000?text=Hello%20Mosai%20Schools!%20I%20would%20like%20to%20enquire%20about%20enrolment." target="_blank" class="social-btn whatsapp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact" style="background:var(--cream);">
+  <div class="contact reveal">
+    <div class="contact-info">
+      <div class="section-label" style="margin-bottom:16px;">Get In Touch</div>
+      <h2>Visit Us on<br><em>Garunga Road</em><br>Entebbe</h2>
+      <p>We welcome all enquiries. Whether you're ready to enroll your child or simply want to learn more about what makes Mosai Schools special, our team is here to help.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Location</strong>
+            <span>Garunga Road, Entebbe<br>Wakiso District, Uganda</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>Call / WhatsApp</strong>
+            <span><a href="tel:+256700000000">+256 700 000 000</a><br>Mon – Fri: 7:30am – 5:00pm</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-item-text">
+            <strong>Email Us</strong>
+            <span><a href="mailto:info@mosaischools.ac.ug">info@mosaischools.ac.ug</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">👥</div>
+          <div class="contact-item-text">
+            <strong>Social Media</strong>
+            <span>
+              <a href="https://www.facebook.com/groups/948631243306593/" target="_blank">Facebook: Mosai Schools Entebbe</a><br>
+              <a href="https://www.tiktok.com/discover/mosai-schools-entebbe-on-garunga-road" target="_blank">TikTok: @MosaiSchoolsEbb</a>
+            </span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-item-text">
+            <strong>School Hours</strong>
+            <span>Mon – Fri: 7:30am – 4:30pm<br>Saturday: 8:00am – 12:00pm (Extra Classes)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Request Information ✦</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Parent's Name</label>
+          <input class="form-input" type="text" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone / WhatsApp</label>
+          <input class="form-input" type="tel" placeholder="+256 ...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Child's Age / Class</label>
+        <select class="form-select">
+          <option value="">Select program...</option>
+          <option>Baby / Daycare (6m – 2yrs)</option>
+          <option>Nursery (3 – 5 years)</option>
+          <option>Primary 1 – 3</option>
+          <option>Primary 4 – 5</option>
+          <option>Primary 6 – 7</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Message</label>
+        <textarea class="form-textarea" placeholder="Tell us a little about your child and any questions you have..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="alert('Thank you! We will contact you within 24 hours. You can also WhatsApp us directly.')">
+        Send Enquiry →
+      </button>
+      <p style="text-align:center; margin-top:16px; font-size:12px; color:var(--text-light); font-weight:300;">
+        Or walk in to our campus on Garunga Road, Entebbe · We're always happy to see you!
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7971.5!2d32.4614!3d0.0512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbf2b0e0f3b9b%3A0x123456789!2sGarunga%20Rd%2C%20Entebbe%2C%20Uganda!5e0!3m2!1sen!2sug!4v1234567890"
+    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Mosai Schools Entebbe Location">
+  </iframe>
+  <div class="map-badge">
+    <strong>📍 Mosai Schools Entebbe</strong>
+    <span>Garunga Road, Entebbe, Uganda</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="nav-logo-icon" style="width:40px;height:40px;font-size:18px;">M</div>
+        <div class="nav-brand" style="font-size:18px;">
+          Mosai Schools
+          <span>Entebbe, Uganda</span>
+        </div>
+      </div>
+      <p>Raising the next generation of Ugandan leaders through quality education, strong values, and a deep love of learning. Located on Garunga Road, Entebbe.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#programs">Our Programs</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Community</a></li>
+        <li><a href="#contact">Admissions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">Baby & Daycare</a></li>
+        <li><a href="#">Nursery School</a></li>
+        <li><a href="#">Primary 1 – 7</a></li>
+        <li><a href="#">After School Care</a></li>
+        <li><a href="#">Holiday Programs</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Garunga Road, Entebbe</a></li>
+        <li><a href="tel:+256700000000">+256 700 000 000</a></li>
+        <li><a href="mailto:info@mosaischools.ac.ug">info@mosaischools.ac.ug</a></li>
+        <li><a href="https://www.facebook.com/groups/948631243306593/" target="_blank">Facebook Page</a></li>
+        <li><a href="https://www.tiktok.com/discover/mosai-schools-entebbe-on-garunga-road" target="_blank">TikTok Channel</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Mosai Schools Entebbe. All rights reserved. | Garunga Road, Entebbe, Uganda</p>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/groups/948631243306593/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.tiktok.com/discover/mosai-schools-entebbe-on-garunga-road" target="_blank" title="TikTok">♪</a>
+      <a href="https://wa.me/256700000000" target="_blank" title="WhatsApp">💬</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.padding = '12px 60px';
+      nav.style.background = 'rgba(13,12,10,0.98)';
+    } else {
+      nav.style.padding = '18px 60px';
+      nav.style.background = 'rgba(13,12,10,0.92)';
+    }
+  });
+</script>
+</body>
+</html>
